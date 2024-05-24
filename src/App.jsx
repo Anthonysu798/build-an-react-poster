@@ -1,5 +1,12 @@
+import PostsList from '@/src/components/PostsList.jsx';
 function App() {
-  return <h1>Hello World!</h1>;
+  return (
+    // Need atleast one root element
+    <main>
+      <PostsList />
+    </main>
+    
+  );
 }
 
 export default App;
