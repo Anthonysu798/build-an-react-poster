@@ -19,7 +19,7 @@ function PostsList() {
             <Post author="Manuel" body="Check out the full course!" />
             </ul>
         </>
-    )
+    );
 }
 
 export default PostsList;
