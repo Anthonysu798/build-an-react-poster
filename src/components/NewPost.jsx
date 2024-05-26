@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "./NewPost.module.css";
 
-function NewPost({ onCancel }) {
+function NewPost({ onCancel, onAddPost }) {
 	const [enteredBody, setEnteredBody] = useState("");
 	const [enteredAuthor, setEnteredAuthor] = useState("");
 
@@ -17,12 +17,11 @@ function NewPost({ onCancel }) {
 	function submitHandler(event) {
 		// Prevent the user send the form
 		event.preventDefault();
-		const postDate = {
+		const postData = {
 			body: enteredBody,
 			author: enteredAuthor,
 		};
-        onCancel();
-        
+        onAddPost(postData);
 	}
 
 	return (
