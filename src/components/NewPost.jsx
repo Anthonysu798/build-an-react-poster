@@ -8,7 +8,7 @@ function NewPost(props) {
         <textarea id="body" required rows={3} onChange={props.onBodyChange}/> 
         </p>
         
-        <p>{enteredBody}</p>
+       
         
         <p>
         <label htmlFor="name">Your name</label>
