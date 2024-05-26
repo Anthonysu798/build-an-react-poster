@@ -1,11 +1,6 @@
 import classes from "./NewPost.module.css";
 
 function NewPost(props) {
-
-    function changeBodyHandler(event) {
-        setEnteredBody(event.target.value);
-    }
-
     return (
         <form className={classes.form}>
         <p>
