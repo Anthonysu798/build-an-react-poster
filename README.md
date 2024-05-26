@@ -10,5 +10,9 @@ The React Poster App is a simple web application that allows users to create and
 * State Management: Posts are managed using React's state, ensuring dynamic updates to the UI.
 * Conditional Rendering: The UI changes based on whether posts exist, providing prompts if no posts are present.
 
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
 ## Vercel Hosting
 Project URL: https://react-poster-pi.vercel.app/
