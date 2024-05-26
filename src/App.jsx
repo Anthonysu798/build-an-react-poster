@@ -26,6 +26,7 @@ function App() {
 					onStopPosting={hideModalHandler}
 				/>
 			</main>
+      
 		</>
 	);
 }
