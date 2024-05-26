@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
 import Post from '@/src/components/Post.jsx';
-import classess from '@/src/components/PostsList.module.css';
+import classes from '@/src/components/PostsList.module.css';
 import NewPost from '@/src/components/NewPost.jsx';
+import Modal from '@/src/components/Modal.jsx';
 
 function PostsList() {
     const [enteredBody, setEnteredBody] = useState('');
@@ -18,8 +19,13 @@ function PostsList() {
 
     return (
         <>
-            <NewPost onBodyChange={bodyChangeHandler} onAuthorChange={authorChangeHandler} />
-            <ul className={classess.posts}>
+        <Modal >
+            <NewPost
+                onBodyChange={bodyChangeHandler}
+                onAuthorChange={authorChangeHandler}
+            />
+        </Modal>
+            <ul className={classes.posts}>
             <Post author={enteredAuthor} body={enteredBody} />
             <Post author="Manuel" body="Check out the full course!" />
             </ul>
