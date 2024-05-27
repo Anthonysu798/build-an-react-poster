@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import classes from "./NewPost.module.css";
 import Modal from "../components/Modal";
 
 
-function NewPost({ onCancel, onAddPost }) {
+function NewPost({ onAddPost }) {
 	const [enteredBody, setEnteredBody] = useState("");
 	const [enteredAuthor, setEnteredAuthor] = useState("");
 
@@ -53,11 +54,10 @@ function NewPost({ onCancel, onAddPost }) {
 
 			<p className={`${classes.actions} mt-5`}>
 				{" "}
-				{/* Multiple Styling */}
-				{/* Cancel the form when clicked */}
-				<button type="button" onClick={onCancel}>
+				{/* When clicked on Cancelled should go back to home page */}
+				<Link to=".." type="button"> 
 					Cancel
-				</button>
+				</Link>
 				{/* Only the submit button will submit the form */}
 				<button>Submit</button>
 			</p>
