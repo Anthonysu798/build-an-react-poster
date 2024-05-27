@@ -1,27 +1,10 @@
-import { useState, useEffect } from "react";
+import { useLoaderData } from "react-router-dom";
 
 import Post from "@/src/components/Post.jsx";
 import classes from "@/src/components/PostsList.module.css";
 
 function PostsList() {
-	const [posts, setPosts] = useState([]);
-	const [isFetching, setIsFetching] = useState(false);
-
-	useEffect(() => {
-		async function fetchPosts() {
-			setIsFetching(true); // Set isFetching to true to show loading spinner while fetching data
-			const response = await fetch("http://localhost:8080/posts");
-			const resData = await response.json();
-            if (!response.ok) {
-                throw new Error(resData.message || "Failed to fetch posts.");
-            }
-
-			setPosts(resData.posts);
-			setIsFetching(false); // Set isFetching to false to hide loading spinner after fetching data
-		}
-
-		fetchPosts();
-	}, []);
+    const posts = useLoaderData();
 
 	function addPostHandler(postData) {
 		// Send a POST request to the server to add a new post
@@ -37,7 +20,7 @@ function PostsList() {
 
 	return (
 		<>
-			{!isFetching && posts.length > 0 && (
+			{posts.length > 0 && (
 				<ul className={classes.posts}>
 					{posts.map((post) => (
 						<Post
@@ -48,17 +31,12 @@ function PostsList() {
 					))}
 				</ul>
 			)}
-			{!isFetching && posts.length === 0 && (
+			{posts.length === 0 && (
 				<div style={{ textAlign: "center", color: "white" }}>
 					<h1 className="text-2xl font-bold">
 						There are no posts yet.
 					</h1>
 					<p>Start adding some!</p>
-				</div>
-			)}
-			{isFetching && (
-				<div style={{ textAlign: "center", color: "white" }}>
-					<p>Loading posts...</p>
 				</div>
 			)}
 		</>
